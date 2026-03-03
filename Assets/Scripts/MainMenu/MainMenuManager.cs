@@ -11,10 +11,15 @@ public class MainMenuManager : MonoBehaviour
     public GameObject ButtonStart;
     public GameObject ButtonSettings;
     public GameObject ButtonExit;
+    public Image Transitioner;
+    public GameObject TransitionerGO;
     [SerializeField] private float duration = 4f;
     private float timer = 0f;
+    private bool done = false;
     void Start()
     {
+        Transitioner.CrossFadeAlpha(0f, 0f, false);
+        TransitionerGO.SetActive(false);
         LastOrb.fillAmount = 0;
         Text.SetActive(false);
         ButtonStart.SetActive(false);
@@ -30,12 +35,13 @@ public class MainMenuManager : MonoBehaviour
 
         LastOrb.fillAmount = t;
 
-        if(t==1)
+        if(t==1 && done == false)
         {
             Text.SetActive(true);
             Invoke(nameof(ButtonStartShow), 1f); // nog bij elke button een sound afspelen? N.
             Invoke(nameof(ButtonSettingsShow), 2f);
             Invoke(nameof(ButtonExitShow), 3f);
+            done = true;
         }
     }
 
@@ -56,7 +62,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartB()
     {
-        SceneManager.LoadScene("Maze"); // nog een tutorial scene tussen? of lore? N.
+        StartCoroutine(Fade());
+
     }
 
     public void SettingsB()
@@ -67,5 +74,26 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator Fade()
+    {
+        TransitionerGO.SetActive(true);
+        yield return null;
+        TransitionAppear();
+        yield return new WaitForSeconds(2f);
+        if(MainGameManager.Instance.bools[0] == false)
+        {
+            SceneManager.LoadScene("Lore");
+        }
+        if(MainGameManager.Instance.bools[0] == true)
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
+    }
+
+    void TransitionAppear()
+    {
+        Transitioner.CrossFadeAlpha(1f, 2f, false);
     }
 }
