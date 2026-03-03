@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class MazeGenration : MonoBehaviour
 {
-    public GameObject Wall;
+    public Wall wall;
     public GameObject Path;
     [SerializeField] GameObject Map;
     int x;
@@ -40,9 +40,9 @@ public class MazeGenration : MonoBehaviour
 
     void Start()
     {
-       // Wall.transform.SetParent(Map.transform,false);
+       // .transform.SetParent(Map.transform,false);
 
-        Vector2 TileSize = Wall.GetComponent<Renderer>().bounds.size;
+        Vector2 TileSize = wall.GetComponent<Renderer>().bounds.size;
         float ox = (mapMaker.GetLength(1) * TileSize.x - 1) / 2;
         float oy = (mapMaker.GetLength(0) * TileSize.y - 1) / 2;
 
@@ -55,12 +55,12 @@ public class MazeGenration : MonoBehaviour
                 switch (mapMaker[y, x])
                 {
                     case 0:
-                        GameObject cube = Instantiate(Wall, new Vector3(ux, uy, -1), quaternion.identity);
+                        Wall cube = Instantiate(wall, new Vector3(ux, uy), quaternion.identity);
                         cube.transform.SetParent(Map.transform);
                         //cube.GetComponent<Renderer>().material.color = Color.black;
                         break;
                     case 1:
-                        GameObject air = Instantiate(Path, new Vector3(ux, uy,-1), quaternion.identity);
+                        GameObject air = Instantiate(Path, new Vector3(ux, uy), quaternion.identity);
                         air.transform.SetParent(Map.transform);
                         air.GetComponent<Renderer>().material.color = Color.white;
                         break;
