@@ -10,3 +10,11 @@
 >
 >als de trigger van de Ghostling de hitbox collider van de speler raakt, sterft de speler
 
+flowchart TD
+    B(Enemy Behaviour)
+    B --> C{Flies trough the maze}
+    C -->|Sees the player| D[Follows the traces/points the player left behind]
+    C -->|Lost the player at the last trace| E[Starts Flying rounds again trough the maze]
+    C -->|If collision contact with player| F[Player dies and restarts with one life less]
+
+
