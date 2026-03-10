@@ -3,6 +3,25 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+
+
+
+
+
+
+
+
+    // ander movement systeem maken
+
+
+
+
+
+
+
+
+
     int x;
     int y;
 
@@ -12,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 startPosition;
     public Vector3 endPosition;
+    private int position;
 
     private bool isMoving = false;
 
@@ -25,25 +45,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void CheckForColliders()
+{
+    // Cast a ray upwards
+    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 10f))
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f))
-        {
-            Debug.DrawRay(transform.position, transform.forward, Color.red);
-            Debug.Log(hit.collider.gameObject.name + " you cannot move forward");
-        }
-        else if (Physics.Raycast(transform.position, transform.right, out hit, 1f))
-        {
-            Debug.Log(hit.collider.gameObject.name + " you cannot move right");
-        }
-        else if (Physics.Raycast(transform.position, transform.left, out hit, 1f))
-        {
-            Debug.Log(hit.collider.gameObject.name + " you cannot move left");
-        }
-        else if (Physics.Raycast(transform.position, transform.back, out hit, 1f))
-        {
-            Debug.Log(hit.collider.gameObject.name + " you cannot move backward");
-        }
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up), Color.red);
+        Debug.Log(hit.collider.gameObject.name + " you cannot move forward");
     }
+    // Cast a ray rightwards
+    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 10f))
+    {
+        Debug.Log(hit.collider.gameObject.name + " you cannot move right");
+    }
+    // Cast a ray leftwards
+    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 10f))
+    {
+        Debug.Log(hit.collider.gameObject.name + " you cannot move left");
+    }
+    // Cast a ray downwards
+    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10f))
+    {
+        Debug.Log(hit.collider.gameObject.name + " you cannot move backward");
+    }
+}
 
     private void Update()
     {
