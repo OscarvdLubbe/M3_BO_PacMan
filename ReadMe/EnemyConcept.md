@@ -17,7 +17,7 @@ flowchart TD
     D -- Yes --> E[Follows the traces/points the player left behind]
     D -- No --> C
     E --> F{Lost the player?}
-    F -- Yes --> G[Starts flying around the maze again through the maze]
+    F -- Yes --> G[Starts flying through the maze again]
     F -- No --> E
     E --> H{Collision contact with player?}
     H -- Yes --> I[Player dies and restarts with one life less]
