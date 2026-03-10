@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Wall
+  - Orns
+  - Orbs
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
   - 

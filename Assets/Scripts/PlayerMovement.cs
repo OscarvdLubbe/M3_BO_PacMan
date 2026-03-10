@@ -1,123 +1,135 @@
 using UnityEngine;
+
 using System.Collections;
-
+ 
 public class PlayerMovement : MonoBehaviour
+
 {
-
-
-
-
-
-
-
-
-
-    // ander movement systeem maken
-
-
-
-
-
-
-
-
-
-    int x;
-    int y;
-
-    [SerializeField] private bool isRepeatedMovement = true;
+ 
+ 
     [SerializeField] private float moveDuration = 0.1f;
-    [SerializeField] private float gridSize = 1f;
+ 
+    [SerializeField] private float rayDistance = 1f;
+ 
+    private float gridSize;
 
-    public Vector3 startPosition;
-    public Vector3 endPosition;
-    private int position;
-
+    public SpriteRenderer tile;
+ 
     private bool isMoving = false;
-
-    Ray ray;
-    RaycastHit hit;
-
+ 
     private void Start()
-    {
-        ray = new Ray(transform.position, transform.forward);
-        CheckForColliders();
-    }
 
-    void CheckForColliders()
-{
-    // Cast a ray upwards
-    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 10f))
     {
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up), Color.red);
-        Debug.Log(hit.collider.gameObject.name + " you cannot move forward");
-    }
-    // Cast a ray rightwards
-    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 10f))
-    {
-        Debug.Log(hit.collider.gameObject.name + " you cannot move right");
-    }
-    // Cast a ray leftwards
-    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 10f))
-    {
-        Debug.Log(hit.collider.gameObject.name + " you cannot move left");
-    }
-    // Cast a ray downwards
-    else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10f))
-    {
-        Debug.Log(hit.collider.gameObject.name + " you cannot move backward");
-    }
-}
+        gridSize = tile.bounds.size.x;
 
+    }
+ 
     private void Update()
+
     {
+
         if (isMoving) return;
-
+ 
         if (Input.GetKey(KeyCode.W))
+
         {
-            StartCoroutine(Move(Vector3.up));
+
+            TryMove(Vector3.up);
+
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            StartCoroutine(Move(Vector3.right));
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            StartCoroutine(Move(Vector3.left));
-        }
+
         else if (Input.GetKey(KeyCode.S))
+
         {
-            StartCoroutine(Move(Vector3.down));
+
+            TryMove(Vector3.down);
+
         }
+
+        else if (Input.GetKey(KeyCode.A))
+
+        {
+
+            TryMove(Vector3.left);
+
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+
+        {
+
+            TryMove(Vector3.right);
+
+        }
+
     }
+ 
+    private void TryMove(Vector3 direction)
 
-    public IEnumerator Move(Vector3 direction)
     {
+
+        if (CanMove(direction))
+
+        {
+
+            StartCoroutine(Move(direction));
+
+        }
+
+    }
+ 
+    private bool CanMove(Vector3 direction)
+
+    {
+
+        Vector3 origin = transform.position;
+ 
+        if (Physics.Raycast(origin, direction, rayDistance))
+
+        {
+
+            Debug.DrawRay(origin, direction * rayDistance, Color.red, 0.5f);
+
+            return false;
+
+        }
+ 
+        Debug.DrawRay(origin, direction * rayDistance, Color.green, 0.5f);
+
+        return true;
+
+    }
+ 
+    private IEnumerator Move(Vector3 direction)
+
+    {
+
         isMoving = true;
-
-        startPosition = transform.position;
-        endPosition = startPosition + (direction * gridSize);
-
+ 
+        Vector3 startPosition = transform.position;
+        Vector3 endPosition = startPosition + direction * gridSize;
         float elapsedTime = 0f;
 
         while (elapsedTime < moveDuration)
+
         {
+
             elapsedTime += Time.deltaTime;
+
             float percent = elapsedTime / moveDuration;
 
             transform.position = Vector3.Lerp(startPosition, endPosition, percent);
+
             yield return null;
-        }
 
+        }
+ 
         transform.position = endPosition;
+
         isMoving = false;
+
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            endPosition = startPosition;
-        }
-    }
 }
+
+ 
