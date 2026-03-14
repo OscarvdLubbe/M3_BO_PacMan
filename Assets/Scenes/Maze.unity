@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 1801787741060176481, guid: 122f4dad6844e5446893e0f36597d083, type: 3}
   Path: {fileID: 3629829275074287637, guid: 33c0540881387434f86fc295cc9118dc, type: 3}
-  Orbs: {fileID: 2464904570720324000, guid: 63e0cfe978d5f174f8572cd2deb1b91a, type: 3}
+  Orbs: {fileID: 3852548416799008255, guid: ff87779ccf0d4cd44902e7a647857190, type: 3}
   Map: {fileID: 1003567848}
 --- !u!4 &1003567850
 Transform:
@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 1587862112}
   - component: {fileID: 1587862117}
   - component: {fileID: 1587862118}
+  - component: {fileID: 1587862119}
   m_Layer: 0
   m_Name: PacMan
   m_TagString: Player
@@ -695,6 +696,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1587862119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587862109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cae84e308145d449ac5a564bf869a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

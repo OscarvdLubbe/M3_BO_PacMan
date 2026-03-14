@@ -66,7 +66,7 @@ public class MazeGenration : MonoBehaviour
                         air.GetComponent<Renderer>().material.color = Color.white;
                         break;
                     case 2:
-                        GameObject Balls = Instantiate(Orbs, new Vector3(ux, uy), quaternion.identity);
+                        GameObject Balls = Instantiate(Orbs, new Vector3(ux, uy,-0.2f), quaternion.identity);
                         Orbs.transform.SetParent(Map.transform);
                         //Orbs.GetComponent<Renderer>().material.color = Color.white;
                         break;

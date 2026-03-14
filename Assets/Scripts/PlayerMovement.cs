@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer tile;
  
-    private bool isMoving = false;
+    private bool isMoving = false; 
  
     private void Start()
 
@@ -84,14 +84,19 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 origin = transform.position;
  
-        if (Physics.Raycast(origin, direction, rayDistance))
+ 
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(origin,direction, out hit, rayDistance))
+       // if (Physics.Raycast(origin, direction, rayDistance))
 
         {
-
+    if(hit.collider.isTrigger)
+            {
+                return true;
+            }
             Debug.DrawRay(origin, direction * rayDistance, Color.red, 0.5f);
-
             return false;
-
         }
  
         Debug.DrawRay(origin, direction * rayDistance, Color.green, 0.5f);
