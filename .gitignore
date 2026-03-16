@@ -66,6 +66,9 @@ sysinfo.txt
 # Mono auto generated files
 mono_crash.*
 
+# For deleting the damn save file oscar
+data.sav
+
 # Builds
 *.apk
 *.aab

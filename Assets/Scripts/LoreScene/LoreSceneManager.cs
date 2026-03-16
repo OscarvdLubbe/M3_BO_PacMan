@@ -32,7 +32,7 @@ public class LoreSceneManager : MonoBehaviour
 
     IEnumerator LoreSequence()
     {
-        Invoke(nameof(TransitionFade), 0f);
+        TransitionFade();
         while (!Input.GetKeyDown(KeyCode.Return))
         {
             yield return null;
@@ -41,11 +41,11 @@ public class LoreSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        Invoke(nameof(TransitionAppear), 0f);
+        TransitionAppear();
         yield return new WaitForSeconds(TransitionLength);
         Image1.SetActive(false);
         Image2.SetActive(true);
-        Invoke(nameof(TransitionFade), 0f);
+        TransitionFade();
         yield return new WaitForSeconds(TransitionLength);
         while (!Input.GetKeyDown(KeyCode.Return))
         {
@@ -55,11 +55,11 @@ public class LoreSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        Invoke(nameof(TransitionAppear), 0f);
+        TransitionAppear();
         yield return new WaitForSeconds(TransitionLength);
         Image2.SetActive(false);
         Image3.SetActive(true);
-        Invoke(nameof(TransitionFade), 0f);
+        TransitionFade();
         yield return new WaitForSeconds(TransitionLength);
         while (!Input.GetKeyDown(KeyCode.Return))
         {
@@ -69,11 +69,11 @@ public class LoreSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        Invoke(nameof(TransitionAppear), 0f);
+        TransitionAppear();
         yield return new WaitForSeconds(TransitionLength);
         Image3.SetActive(false);
         Image4.SetActive(true);
-        Invoke(nameof(TransitionFade), 0f);
+        TransitionFade();
         yield return new WaitForSeconds(TransitionLength);
         while (!Input.GetKeyDown(KeyCode.Return))
         {
@@ -83,11 +83,11 @@ public class LoreSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        Invoke(nameof(TransitionAppear), 0f);
+        TransitionAppear();
         yield return new WaitForSeconds(TransitionLength);
         Image4.SetActive(false);
         Image5.SetActive(true);
-        Invoke(nameof(TransitionFade), 0f);
+        TransitionFade();
         yield return new WaitForSeconds(TransitionLength);
         while (!Input.GetKeyDown(KeyCode.Return))
         {
@@ -97,11 +97,11 @@ public class LoreSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        Invoke(nameof(TransitionAppear), 0f);
+        TransitionAppear();
         yield return new WaitForSeconds(TransitionLength);
         MainGameManager.Instance.bools[0] = true;
         MainGameManager.Instance.UpdateFile();
-        SceneManager.LoadScene("LevelSelect");   
+        SceneManager.LoadScene("TutorialMaze");   
     }
 
     void TransitionFade()

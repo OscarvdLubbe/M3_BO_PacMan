@@ -1,37 +1,35 @@
 using UnityEngine;
 
 using System.Collections;
-
-
-public class PlayerMovement : MonoBehaviour
+ 
+public class PlayerMovementTutorial : MonoBehaviour
 
 {
-    private Enemy[] enemies;
-    public GameObject waypoint;
+ 
+ 
     [SerializeField] private float moveDuration = 0.1f;
-
+ 
     [SerializeField] private float rayDistance = 1f;
-
+ 
     private float gridSize;
 
     public SpriteRenderer tile;
-
-    private bool isMoving = false;
-
+ 
+    private bool isMoving = false; 
+ 
     private void Start()
 
     {
         gridSize = tile.bounds.size.x;
-        enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
     }
-
+ 
     private void Update()
 
     {
 
         if (isMoving) return;
-
+ 
         if (Input.GetKey(KeyCode.W))
 
         {
@@ -63,26 +61,13 @@ public class PlayerMovement : MonoBehaviour
             TryMove(Vector3.right);
 
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject obj = Instantiate(waypoint);
-            obj.transform.position = transform.position;
-            foreach (Enemy e in enemies)
-            {
-                e.points.Add(obj.transform);
-            }
-        }
-    }
 
+    }
+ 
     private void TryMove(Vector3 direction)
 
     {
-        GameObject obj = Instantiate(waypoint);
-        obj.transform.position = transform.position;
-        foreach (Enemy e in enemies)
-        {
-            e.points.Add(obj.transform);
-        }
+
         if (CanMove(direction))
 
         {
@@ -92,44 +77,40 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+ 
     private bool CanMove(Vector3 direction)
 
     {
 
         Vector3 origin = transform.position;
-
-
+ 
+ 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(origin, direction, out hit, rayDistance))
-        // if (Physics.Raycast(origin, direction, rayDistance))
+        if (Physics.Raycast(origin,direction, out hit, rayDistance))
+       // if (Physics.Raycast(origin, direction, rayDistance))
 
         {
-<<<<<<< HEAD
-            if (hit.collider.isTrigger)
-=======
             if(hit.collider.isTrigger)
->>>>>>> 20b91906f6db60082f0863bf4bde9bc4bdb0f3d7
             {
                 return true;
             }
             Debug.DrawRay(origin, direction * rayDistance, Color.red, 0.5f);
             return false;
         }
-
+ 
         Debug.DrawRay(origin, direction * rayDistance, Color.green, 0.5f);
 
         return true;
 
     }
-
+ 
     private IEnumerator Move(Vector3 direction)
 
     {
 
         isMoving = true;
-
+ 
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + direction * gridSize;
         float elapsedTime = 0f;
@@ -147,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
 
         }
-
+ 
         transform.position = endPosition;
 
         isMoving = false;
@@ -155,4 +136,3 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
-
