@@ -106,11 +106,7 @@ public class PlayerMovement : MonoBehaviour
         // if (Physics.Raycast(origin, direction, rayDistance))
 
         {
-<<<<<<< HEAD
             if (hit.collider.isTrigger)
-=======
-            if(hit.collider.isTrigger)
->>>>>>> 20b91906f6db60082f0863bf4bde9bc4bdb0f3d7
             {
                 return true;
             }
