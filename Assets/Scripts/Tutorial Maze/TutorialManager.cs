@@ -1,20 +1,25 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.UI;
 
 namespace TutorialMaze
 {
     public class CameraTrigger : MonoBehaviour
     {
-        public CinemachineCamera followCam;
-        public CinemachineCamera zoomOutCam;
-
-        private void OnTriggerEnter2D(Collider2D other)
+        public Image transitioner;
+        public float transitionLength = 1f;
+        void Start()
         {
-            if (other.CompareTag("Player"))
-            {
-                followCam.Priority = 5;
-                zoomOutCam.Priority = 20;
-            }
+            TransitionFade();
+        }
+        void TransitionFade()
+        {
+            transitioner.CrossFadeAlpha(0f, transitionLength, false);
+        }
+
+        void TransitionAppear()
+        {
+            transitioner.CrossFadeAlpha(1f, transitionLength, false);
         }
     }
 }
