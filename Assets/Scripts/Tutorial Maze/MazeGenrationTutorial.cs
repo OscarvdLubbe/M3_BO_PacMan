@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+1 Unity.Mathematics;
 using UnityEngine;
 
 public class MazeGenrationTutorial : MonoBehaviour
@@ -22,6 +22,12 @@ public class MazeGenrationTutorial : MonoBehaviour
         GenerateMaze();
     }
 
+    class WaypointOnMap
+    {
+        int x ,y ;
+        GameObject waypoint;
+    }
+
     void GenerateMaze()
     {
         Vector2 tileSize = wall.GetComponent<Renderer>().bounds.size;
@@ -29,6 +35,7 @@ public class MazeGenrationTutorial : MonoBehaviour
         float ox = (mapMaker.GetLength(1) * tileSize.x - 1) / 2;
         float oy = (mapMaker.GetLength(0) * tileSize.y - 1) / 2;
 
+//maak waypoint list 
         for (int y = 0; y < mapMaker.GetLength(0); y++)
         {
             for (int x = 0; x < mapMaker.GetLength(1); x++)
@@ -53,9 +60,18 @@ public class MazeGenrationTutorial : MonoBehaviour
                         air2.transform.SetParent(Map.transform);
                         air2.GetComponent<Renderer>().material.color = Color.white;
                         break;
+                    case 3:
+                        GameObject Waypoint = Instantiate(FakePath, new Vector3(ux, uy), quaternion.identity);
+                        //onthoud de x en y (van je map)
+                        air2.transform.SetParent(Map.transform);
+                        air2.GetComponent<Renderer>().material.color = Color.white;
+                        break;
                 }
             }
         }
+
+        //loop door elke waypoint en kijk naar boven/links etc voor de eerste muur (0) of waypoint(3)
+        //koppel de N Z W E waypoints die vindt
     }
 
     public void ToggleO()

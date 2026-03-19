@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             obj.transform.position = transform.position;
             foreach (Enemy e in enemies)
             {
-                e.points.Add(obj.transform);
+                e.AddPoint(obj.transform);
             }
         }
     }
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         obj.transform.position = transform.position;
         foreach (Enemy e in enemies)
         {
-            e.points.Add(obj.transform);
+            e.AddPoint(obj.transform);
         }
         if (CanMove(direction))
 
