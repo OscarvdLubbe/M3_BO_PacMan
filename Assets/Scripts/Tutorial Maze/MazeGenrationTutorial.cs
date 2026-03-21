@@ -1,4 +1,4 @@
-1 Unity.Mathematics;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MazeGenrationTutorial : MonoBehaviour
@@ -7,6 +7,7 @@ public class MazeGenrationTutorial : MonoBehaviour
     public Wall wall;
     public GameObject FakePath;
     public GameObject Path;
+    public GameObject TheWayToGo;
     [SerializeField] GameObject Map;
 
     private int[,] mapMaker;
@@ -61,17 +62,23 @@ public class MazeGenrationTutorial : MonoBehaviour
                         air2.GetComponent<Renderer>().material.color = Color.white;
                         break;
                     case 3:
-                        GameObject Waypoint = Instantiate(FakePath, new Vector3(ux, uy), quaternion.identity);
+                        GameObject Waypoint = Instantiate(TheWayToGo, new Vector3(ux, uy), quaternion.identity);
                         //onthoud de x en y (van je map)
-                        air2.transform.SetParent(Map.transform);
-                        air2.GetComponent<Renderer>().material.color = Color.white;
+                        Waypoint.transform.SetParent(Map.transform);
+                        Waypoint.GetComponent<Renderer>().material.color = Color.white;
                         break;
                 }
             }
         }
+    for (int y = 0; y < mapMaker.GetLength(0); y++)
+        {
+            for (int x = 0; x < mapMaker.GetLength(1); x++)
+            {
 
-        //loop door elke waypoint en kijk naar boven/links etc voor de eerste muur (0) of waypoint(3)
-        //koppel de N Z W E waypoints die vindt
+            //loop door elke waypoint en kijk naar boven/links etc voor de eerste muur (0) of waypoint(3)
+            //koppel de N Z W E waypoints die vindt
+            }
+        }
     }
 
     public void ToggleO()
