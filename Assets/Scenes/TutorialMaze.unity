@@ -724,7 +724,11 @@ MonoBehaviour:
   wall: {fileID: 1801787741060176481, guid: 122f4dad6844e5446893e0f36597d083, type: 3}
   FakePath: {fileID: 3629829275074287637, guid: b3ee5f9cf14f3c5409d3b30053f8124e, type: 3}
   Path: {fileID: 3629829275074287637, guid: 33c0540881387434f86fc295cc9118dc, type: 3}
+<<<<<<< HEAD
   TheWayToGo: {fileID: 7202157447111151126, guid: bf23c8ceb4020524b985570f775c6feb, type: 3}
+=======
+  TheWayToGo: {fileID: 0}
+>>>>>>> 4334d302d39565549a34655cff4f59b85e45743c
   Map: {fileID: 1003567848}
 --- !u!114 &1003567852
 MonoBehaviour:
@@ -1170,7 +1174,7 @@ RectTransform:
   m_GameObject: {fileID: 1846839131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3333299, y: 1.3333299, z: 1.3333299}
+  m_LocalScale: {x: 2.83, y: 6.07, z: 1.3333299}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1987660390}
@@ -1525,7 +1529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 25, y: -70}
+  m_AnchoredPosition: {x: 11, y: -10}
   m_SizeDelta: {x: 455.1, y: 78.599976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2145037961
@@ -1575,14 +1579,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75.54
-  m_fontSizeBase: 75.54
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
