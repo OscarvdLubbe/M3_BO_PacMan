@@ -4,7 +4,7 @@ using System.IO;
 
 public class MainGameManager : MonoBehaviour
 {
-    public bool[] bools = {false, false, false, false, false};
+    public bool[] bools = {false, false, false, false};
 
     public static MainGameManager Instance { get; private set; }
 
