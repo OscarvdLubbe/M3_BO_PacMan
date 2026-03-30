@@ -724,11 +724,7 @@ MonoBehaviour:
   wall: {fileID: 1801787741060176481, guid: 122f4dad6844e5446893e0f36597d083, type: 3}
   FakePath: {fileID: 3629829275074287637, guid: b3ee5f9cf14f3c5409d3b30053f8124e, type: 3}
   Path: {fileID: 3629829275074287637, guid: 33c0540881387434f86fc295cc9118dc, type: 3}
-<<<<<<< HEAD
   TheWayToGo: {fileID: 7202157447111151126, guid: bf23c8ceb4020524b985570f775c6feb, type: 3}
-=======
-  TheWayToGo: {fileID: 0}
->>>>>>> 4334d302d39565549a34655cff4f59b85e45743c
   Map: {fileID: 1003567848}
 --- !u!114 &1003567852
 MonoBehaviour:
