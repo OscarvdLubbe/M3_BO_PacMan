@@ -20,7 +20,7 @@ public class MazeEntranceCloser : MonoBehaviour
     {
         if (closed == false)
         {
-            MazeGenrationTutorial.Instance.ToggleO();
+            MazeGenrationTutorial.Instance.Regenerate();
             followCam.Priority = 5;
             zoomOutCam.Priority = 20;
             closed = true;
