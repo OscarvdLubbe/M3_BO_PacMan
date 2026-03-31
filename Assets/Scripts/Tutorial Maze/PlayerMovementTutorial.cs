@@ -6,7 +6,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
 {
  
- 
+    int lives = 1;
     [SerializeField] private float moveDuration = 0.1f;
  
     [SerializeField] private float rayDistance = 1f;
@@ -89,5 +89,19 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
         transform.position = endPosition;
         isMoving = false;
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("You are being touched");
+            lives--;
+            Debug.Log($"{lives}");
+        }
+        else if (lives <= 0)
+        {
+            Debug.Log("You died");
+            other.gameObject.SetActive(false);
+        }
     }
 }

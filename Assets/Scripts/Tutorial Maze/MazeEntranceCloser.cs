@@ -16,7 +16,7 @@ public class MazeEntranceCloser : MonoBehaviour
     {
         Text0();
     }
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if (closed == false)
         {
