@@ -90,6 +90,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         transform.position = endPosition;
         isMoving = false;
     }
+<<<<<<< HEAD
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -104,4 +105,6 @@ public class PlayerMovementTutorial : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
+=======
+>>>>>>> 84863a0997d3f6bb16734af722bb35106b4e10f6
 }
