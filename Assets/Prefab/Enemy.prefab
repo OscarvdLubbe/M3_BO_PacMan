@@ -12,16 +12,10 @@ GameObject:
   - component: {fileID: 760320710812912908}
   - component: {fileID: 2489778714656867777}
   - component: {fileID: -3308875171887102976}
-<<<<<<< HEAD
   - component: {fileID: 5441380248798083356}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
-=======
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
->>>>>>> 84863a0997d3f6bb16734af722bb35106b4e10f6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +133,6 @@ MonoBehaviour:
   rayDistance: 1
   gridSize: 1
   moveDuration: 0.2
-<<<<<<< HEAD
 --- !u!61 &5441380248798083356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -186,5 +179,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-=======
->>>>>>> 84863a0997d3f6bb16734af722bb35106b4e10f6

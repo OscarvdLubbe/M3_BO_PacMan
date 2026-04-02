@@ -9,6 +9,19 @@ TagManager:
   - Orbs
   - FakePath1
   - Enemy
+  - RD
+  - LRD
+  - LD
+  - UDR
+  - UDLR
+  - UDL
+  - UR
+  - ULR
+  - UL
+  - R
+  - L
+  - U
+  - D
   layers:
   - Default
   - TransparentFX
