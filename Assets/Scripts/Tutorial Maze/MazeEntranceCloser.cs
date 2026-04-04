@@ -18,7 +18,7 @@ public class MazeEntranceCloser : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (closed == false)
+        if (closed == false && collider.gameObject.CompareTag("Player")) 
         {
             MazeGenrationTutorial.Instance.Regenerate();
             followCam.Priority = 5;
