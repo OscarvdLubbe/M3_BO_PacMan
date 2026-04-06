@@ -10,6 +10,8 @@ public class MazeEntranceCloser : MonoBehaviour
     public CinemachineCamera followCam;
     public CinemachineCamera zoomOutCam;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI count;
+    public Image orb;
     public float transitionLength = 3f;
 
     void Start()
@@ -36,11 +38,15 @@ public class MazeEntranceCloser : MonoBehaviour
     void Text0()
     {
         text.CrossFadeAlpha(0f, 0f, false);
+        count.CrossFadeAlpha(0f, 0f, false);
+        orb.CrossFadeAlpha(0f, 0f, false);
     }
 
     void TextAppear()
     {
         text.CrossFadeAlpha(1f, transitionLength, false);
+        count.CrossFadeAlpha(1f, transitionLength / 4, false);
+        orb.CrossFadeAlpha(1f, transitionLength / 4, false);
     }
 
     IEnumerator Text()

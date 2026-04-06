@@ -22,11 +22,12 @@ TagManager:
   - L
   - U
   - D
+  - Waypoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - wall
+  - Wall
   - Water
   - UI
   - 

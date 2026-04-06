@@ -22,9 +22,4 @@ public class LevelSelectManager : MonoBehaviour
             filler.fillAmount = 0f;
         }
     }
-
-    void Update()
-    {
-        
-    }
 }
