@@ -13,10 +13,16 @@ public class MazeEntranceCloser : MonoBehaviour
     public TextMeshProUGUI count;
     public Image orb;
     public float transitionLength = 3f;
+    public GameObject[] ghost;
 
     void Start()
     {
+        ghost = GameObject.FindGameObjectsWithTag("Enemy");
         Text0();
+        for (int i = 0; i < ghost.Length; i++)
+        {
+            ghost[i].SetActive(false);
+        }
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -27,6 +33,11 @@ public class MazeEntranceCloser : MonoBehaviour
             zoomOutCam.Priority = 20;
             closed = true;
             StartCoroutine(Text());
+            for (int i = 0; i < ghost.Length; i++)
+            {
+                ghost[i].SetActive(true);
+            }
+
         }
     }
 

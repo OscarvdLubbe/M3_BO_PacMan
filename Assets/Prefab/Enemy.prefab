@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7151082491527582486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,9 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a8489fd8bcce42b5feb163ca15c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  neighborDistance: 2
-  player: {fileID: 0}
+  moveDuration: 0.25
+  rayDistance: 1
+  tile: {fileID: 5090395249166975539, guid: 33c0540881387434f86fc295cc9118dc, type: 3}
+  upSprite: {fileID: 21300000, guid: 5569b964e0e61124887cd3f2115e7da2, type: 3}
+  downSprite: {fileID: 21300000, guid: 66ff84e3f59aa9a4a94f9fa2528107df, type: 3}
+  leftSprite: {fileID: 21300000, guid: fe02fb6d9810bac4aba8d2ceacb071bf, type: 3}
+  rightSprite: {fileID: 21300000, guid: 5aae227907814d94bab92be9f2039076, type: 3}
+  idleSprite: {fileID: 21300000, guid: 6271dd7b6e0a22a48ad108be0937edf8, type: 3}
 --- !u!50 &-4116730140589437674
 Rigidbody2D:
   serializedVersion: 5
@@ -131,7 +136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8352267103469327437
 BoxCollider2D:
   m_ObjectHideFlags: 0

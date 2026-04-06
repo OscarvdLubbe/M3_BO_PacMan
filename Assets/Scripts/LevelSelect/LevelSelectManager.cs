@@ -7,6 +7,7 @@ public class LevelSelectManager : MonoBehaviour
     public Image filler;
     void Start()
     {
+        Time.timeScale = 1;
         filler.fillAmount = 1f; 
         outpost2.SetActive(false);
         castle.SetActive(false);

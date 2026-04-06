@@ -22,6 +22,7 @@ public class LoreSceneManager : MonoBehaviour
         Image5.SetActive(false);
 
         StartCoroutine(LoreSequence());
+        Time.timeScale = 1;
 
     }
 

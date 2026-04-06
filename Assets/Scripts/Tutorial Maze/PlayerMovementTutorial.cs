@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
  
 public class PlayerMovementTutorial : MonoBehaviour
 
 {
  
-    int lives = 1;
+    public int lives = 1;
     [SerializeField] private float moveDuration = 0.1f;
  
     [SerializeField] private float rayDistance = 1f;
  
+    public static PlayerMovementTutorial Instace;
     private float gridSize;
 
     public SpriteRenderer tile;
@@ -21,6 +23,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     {
         gridSize = tile.bounds.size.x;
+        Instace = this;
 
     }
  
@@ -88,17 +91,16 @@ public class PlayerMovementTutorial : MonoBehaviour
         transform.position = endPosition;
         isMoving = false;
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("You are being touched");
             lives--;
-            Debug.Log(lives);
-
             if (lives <= 0)
             {
                 Debug.Log("You died");
+                SceneManager.LoadScene("TutorialMaze");
                 gameObject.SetActive(false);
             }
         }

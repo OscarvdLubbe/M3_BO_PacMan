@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
         ButtonStart.SetActive(false);
         ButtonSettings.SetActive(false);
         ButtonExit.SetActive(false);
+        Time.timeScale = 1;
     }
 
 
