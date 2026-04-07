@@ -4,21 +4,21 @@
 > [concept game readme](/ReadMe/Concept.md)
 
 > [concept Enemy readme](/ReadMe/EnemyConcept.md)
->
-> Concept
 
-> HetSpel
+> # Het Concept
 
-> #InDepths
+> # Het Spel
 
-> PlayerMovement
+> # In Depths
 
-> EnemyMovement
+> # Player Movement
 
-> LoreScene
+> # Enemy Movement
 
-> UI
+> # Lore Scene
 
-> #TheMazeGenration
+> # UI
 
-> # SaveFile
+> # The Maze Genration
+
+> # Save File
