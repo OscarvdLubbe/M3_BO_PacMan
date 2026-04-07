@@ -5,6 +5,7 @@ public class LevelSelectManager : MonoBehaviour
     public GameObject outpost2;
     public GameObject castle;
     public Image filler;
+    public Image transitioner;
     void Start()
     {
         Time.timeScale = 1;
@@ -22,5 +23,10 @@ public class LevelSelectManager : MonoBehaviour
             castle.SetActive(true);
             filler.fillAmount = 0f;
         }
+        TransitionFade();
+    }
+    void TransitionFade()
+    {
+        transitioner.CrossFadeAlpha(0f, 3f, false);
     }
 }
