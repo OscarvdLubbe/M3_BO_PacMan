@@ -7,7 +7,7 @@
 
 > # Het Concept
 
-Waar gaat het spel over?
+Waar gaat het spel over?<p>
 Het is een 2.5D(2D sprites in een 3D omgeving) spel waar je als pacman speelt die alle pacs in het doolhof moet op eten om 
 
 ![Picture](/ReadMe/gfx/image.png)
